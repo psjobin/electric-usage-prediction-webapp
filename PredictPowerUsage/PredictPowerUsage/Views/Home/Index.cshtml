@@ -1,46 +1,54 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-
-    @using (Html.BeginForm("Index","Home",FormMethod.Post))
-    {
-        <table>
-           <tr>
-               <td><label for="password">Password</label></td>
-               <td>
-                
-                   @Html.TextBox("password")
-               </td>
-           </tr>
-        <tr>
-            <td><label for="myDate">Date</label></td>
-            <td>
-                
-                @Html.TextBox("myDate",null,  new { @class = "form-control datepicker", placeholder = "Enter date here..." })
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Get Prediction" /></td>
-        </tr>
-    </table>
-    }
-
-    <label id="lblErr" style="color:red;">@ViewData["lblErr"]</label>
-    <label id="lblPrediction">@ViewData["lblPrediction"]</label>
-
-
-
+	<h1 class="display-4">Electric power usage forecast for the year 2018</h1>
 </div>
+<hr />
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+	<table>
+		<tr>
+			<td><label for="password">Password</label></td>
+			<td>
+
+				@Html.TextBox("password",null,new{placeholder="password"})
+			</td>
+		</tr>
+		<tr>
+			<td><label for="myDate">Date</label></td>
+			<td>
+
+				@Html.TextBox("myDate",null,  new { @class = "form-control datepicker", placeholder = "Enter date here" })
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="Get Prediction" /></td>
+		</tr>
+		<tr>
+			<td colspan=2>
+				<label id="lblErr" style="color:red;">@ViewData["lblErr"]</label>
+			</td>
+		</tr>
+		<tr>
+			<td colspan=2>
+				<label id="lblPrediction">@ViewData["lblPrediction"]</label>
+			</td>
+		</tr>
+	</table>
+}
+
+<textarea disabled="disabled" id="w3review" name="w3review" rows="4" cols="50">
+Enter the password and select a valid date in the year 2018.
+</textarea>
 
 @section Scripts {
 
 <script>
-    $(function () { // will trigger when the document is ready
-       $('.datepicker').datepicker(); //Initialise any date pickers
-    });
+	$(function () { // will trigger when the document is ready
+	   $('.datepicker').datepicker(); //Initialise any date pickers
+	});
 </script>
 
 }
